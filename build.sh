@@ -53,7 +53,7 @@ sleep 60s
 
 # Get ingress URL
 echo "--------------------Ingress URL--------------------"
-# kubectl get ingress nodejs-app-ingress -n $namespace -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'
+kubectl get ingress go-app-ingress -n $namespace -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'
 echo " "
 echo " "
 echo "--------------------Application URL--------------------"
