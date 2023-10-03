@@ -1,0 +1,41 @@
+name: Continuous Deployment
+
+on:
+  workflow_run:
+    workflows: ["Continuous Integration"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    # Check if the CI workflow was successful
+    if: github.event.workflow_run.conclusion == 'success'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+
+      - name: Set up Kubectl
+        uses: azure/setup-kubectl@v1
+        with:
+          version: 'latest'
+
+      - name: Verify kubectl
+        run: |
+          kubectl version --client
+
+      - name: Deploy to Kubernetes
+        run: |
+          echo "${{ secrets.KUBECONFIG_SECRET }}" | base64 -d > kubeconfig
+          export KUBECONFIG=kubeconfig
+          kubectl apply -f k8s
+
