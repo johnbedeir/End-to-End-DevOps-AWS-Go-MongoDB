@@ -30,5 +30,5 @@ jobs:
         ECR_REPOSITORY: goapp-survey
         IMAGE_TAG: latest
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./Go-app
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./Go-app/
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
