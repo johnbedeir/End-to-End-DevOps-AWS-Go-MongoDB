@@ -2,13 +2,18 @@
 
 # Variables
 cluster_name="cluster-1-test"
-namespace="go-survey"
 region="eu-central-1"
-image_name="702551696126.dkr.ecr.eu-central-1.amazonaws.com/goapp-survey:latest"
+aws_id="702551696126"
+repo_name="goapp-survey"
+image_name="$aws_id.dkr.ecr.$region.amazonaws.com/$repo_name:latest"
 domain="johnydev.com"
-# End Variables
+namespace="go-survey" # you can keep this variable or if you will change it remember to change the namespace in k8 manifests inside k8s directory
+# End of Variables
 
-# create the cluster
+# update helm repos
+helm repo update
+
+# build the infrastructure
 echo "--------------------Creating EKS--------------------"
 echo "--------------------Creating ECR--------------------"
 echo "--------------------Creating EBS--------------------"
@@ -33,7 +38,7 @@ docker build -t $image_name ./Go-app/
 
 #ECR Login
 echo "--------------------Login to ECR--------------------"
-aws ecr get-login-password --region $region | docker login --username AWS --password-stdin 702551696126.dkr.ecr.eu-central-1.amazonaws.com
+aws ecr get-login-password --region $region | docker login --username AWS --password-stdin $aws_id.dkr.ecr.$region.amazonaws.com
 
 # push the latest build to dockerhub
 echo "--------------------Pushing Docker Image--------------------"
@@ -57,7 +62,7 @@ kubectl get ingress go-app-ingress -n $namespace -o jsonpath='{.status.loadBalan
 echo " "
 echo " "
 echo "--------------------Application URL--------------------"
-echo "http://nodejs.$domain"
+echo "http://goapp.$domain"
 
 echo "--------------------Alertmanager URL--------------------"
 echo "http://alertmanager.$domain"
