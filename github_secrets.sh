@@ -30,18 +30,3 @@ create_secret "AWS_SECRET_ACCESS_KEY" "$AWS_SECRET_ACCESS_KEY"
 
 # Print success message
 echo "AWS credentials stored as GitHub secrets in the repository $OWNER/$REPO"
-
-# echo ""
-
-# echo "Storing Kubeconfig as GitHub secrets in the repository $OWNER/$REPO"
-
-# # Fetch kubeconfig from AWS EKS and encode it as a Base64 string
-# SECRET_NAME="KUBECONFIG_SECRET"
-
-# echo "Generating kubeconfig..."
-# kubeconfig=$(cat /home/$USER/.kube/config | base64)
-
-# create_secret "$SECRET_NAME" "$kubeconfig"
-
-# # Print success message
-# echo "AWS credentials and encoded kubeconfig stored as GitHub secrets in the repository $OWNER/$REPO"
