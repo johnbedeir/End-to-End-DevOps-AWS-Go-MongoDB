@@ -1,7 +1,7 @@
 #!/bin/bash
 namespace="go-survey"
-region="eu-central-1"
-aws_id="702551696126"
+region="YOUR_AWS_REGION"
+aws_id="YOUR_AWS_ACCOUNT_ID"
 repo_name="goapp-survey"
 
 #ECR Login
