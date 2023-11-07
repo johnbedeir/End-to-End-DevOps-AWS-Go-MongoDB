@@ -1,8 +1,12 @@
 #!/bin/bash
 namespace="go-survey"
 region="eu-central-1"
-cluster_name="cluster-1"
+aws_id="702551696126"
 repo_name="goapp-survey"
+
+#ECR Login
+echo "--------------------Login to ECR--------------------"
+aws ecr get-login-password --region $region | docker login --username AWS --password-stdin $aws_id.dkr.ecr.$region.amazonaws.com
 
 # delete Docker-img from ECR
 echo "--------------------Deleting ECR-IMG--------------------"
