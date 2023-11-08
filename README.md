@@ -31,7 +31,7 @@ The `build.sh` script contains a set of variables that you need to customize acc
    aws_id="YOUR_AWS_ACCOUNT_ID"
    repo_name="YOUR_REPO_NAME"
    domain="YOUR_DOMAIN.com"
-   namespace="YOUR_KUBERNETES_NAMESPACE"
+   namespace="go-survey"
    ```
 
 3. Save the changes to the `build.sh` script.
