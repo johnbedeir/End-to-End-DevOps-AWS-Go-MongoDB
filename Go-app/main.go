@@ -53,7 +53,7 @@ func getEnv(key, fallback string) string {
 // Question 1
 func GetQuestion(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode("What is your favorite programming language?")
+	json.NewEncoder(w).Encode("What is your favorite programming language framework?")
 }
 
 // Answer 1
