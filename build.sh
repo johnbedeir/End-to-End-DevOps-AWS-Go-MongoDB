@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Variables
-cluster_name="YOUR_EKS_CLUSTER_NAME"
-region="YOUR_AWS_REGION"
-aws_id="YOUR_AWS_ACCOUNT_ID"
+cluster_name="cluster-1-test"
+region="eu-central-1"
+aws_id="702551696126"
 repo_name="goapp-survey"
 image_name="$aws_id.dkr.ecr.$region.amazonaws.com/$repo_name:latest"
-domain="YOUR_DOMAIN"
+domain="johnydev.com"
 namespace="go-survey" # you can keep this variable or if you will change it remember to change the namespace in k8 manifests inside k8s directory
 # End of Variables
 

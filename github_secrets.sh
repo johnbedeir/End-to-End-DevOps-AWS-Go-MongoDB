@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Set your GitHub repo details
-OWNER="GITHUB_OWNER"
-REPO="REPOSITORY_NAME"
+OWNER="johnbedeir"
+REPO="End-to-end-DevOps-Go-MongoDB"
 
 # Set AWS credentials - ideally, these would be read from a secure source or environment variables
 AWS_ACCESS_KEY_ID=$(awk -F "=" '/aws_access_key_id/ {print $2}' ~/.aws/credentials | xargs)
