@@ -6,7 +6,7 @@ repo_name="goapp-survey"
 
 #ECR Login
 echo "--------------------Login to ECR--------------------"
-aws ecr get-login-password --region $region | docker login --username AWS --password-stdin $aws_id.dkr.ecr.$region.amazonaws.com
+aws ecr batch-delete-image --repository-name $repo_name --image-ids imageTag=latest
 
 # delete Docker-img from ECR
 echo "--------------------Deleting ECR-IMG--------------------"
