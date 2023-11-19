@@ -1,3 +1,5 @@
+// Loadtesting script using k6.io
+
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 
