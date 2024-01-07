@@ -4,6 +4,8 @@
 
 This repository contains scripts and Kubernetes manifests for deploying the Go Survey application on an AWS EKS cluster with an accompanying ECR repository and EBS volumes. The deployment includes setting up an Ingress controller, monitoring with Prometheus and Grafana, and a continuous deployment pipeline.
 
+🎥 For a detailed walkthrough into this project, check out my video on YouTube: [HERE](https://youtu.be/evtBxC8MXHY).
+
 ## Prerequisites
 
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) configured with appropriate permissions
